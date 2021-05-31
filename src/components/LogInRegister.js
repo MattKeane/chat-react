@@ -4,6 +4,8 @@ import LogIn from './LogIn';
 export default function LogInRegister(props) {
 	const [registerMode, setRegisterMode] = useState(false);
 
+	const toggleMode = () => setRegisterMode(!registerMode);
+
 	return (
 		<React.Fragment>
 			{
@@ -11,7 +13,7 @@ export default function LogInRegister(props) {
 				?
 				<p>Register Mode</p>
 				:
-				<LogIn />
+				<LogIn toggleMode={ toggleMode } />
 			}
 		</React.Fragment>
 	)

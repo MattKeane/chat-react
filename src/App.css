@@ -49,3 +49,11 @@ fieldset {
   display: flex;
   justify-content:  space-between;
 }
+
+.pseudolink {
+  text-decoration:  underline;
+}
+
+.pseudolink:hover {
+  text-decoration:  none;
+}

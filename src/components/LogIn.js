@@ -5,6 +5,11 @@ export default function LogIn(props) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const handleSubmit = e => {
+		e.preventDefault();
+		console.log({email, password});
+	}
+
 	return (
 		<form>
 		<h2>Log In</h2>
@@ -30,7 +35,13 @@ export default function LogIn(props) {
 					onChange={ e => setPassword(e.target.value) }
 				/>
 			</fieldset>
-			<button>Sign In</button>
+			<button onClick={ handleSubmit }>Sign In</button>
+			<p 
+				onClick={ props.toggleMode }
+				className="pseudolink"
+			>
+				Need an account? Sign up!
+			</p>
 		</form>
 	)
 }

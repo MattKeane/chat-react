@@ -33,6 +33,7 @@ export default function LogIn(props) {
 	return (
 		<form>
 			<h2>Log In</h2>
+			<p>{ message }</p>
 			<fieldset>
 				<label htmlFor="email">Email:</label>
 				<input 

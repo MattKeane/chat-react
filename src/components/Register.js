@@ -6,10 +6,40 @@ export default function Register(props) {
 	const [username, setUsername] = useState('');
 	const [password, setPassword] = useState('');
 	const [verifyPassword, setVerifyPassword] = useState('');
+	const [message, setMessage] = useState('');
+
+	const handleSubmit = async e => {
+		e.preventDefault();
+		if (password === verifyPassword) {
+			const url = process.env.REACT_APP_API_URL + '/api/v1/auth/register';
+			try {
+				const registerResponse = await fetch(url, {
+					method: 'POST',
+					credentials: 'include',
+					body: JSON.stringify({email, username, password}),
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				});
+				const registerJson = await registerResponse.json();
+				if (registerResponse.status === 201) {
+					props.logInUser(registerJson.data);
+				} else {
+					setMessage(registerJson.message);
+				}
+			} catch(err) {
+				console.error('Error registering user:');
+				console.error(err);
+			}
+		} else {
+			setMessage('Passwords must match!');
+		}
+	};
 
 	return (
 		<form>
 			<h2>Register</h2>
+			<p>{ message }</p>
 			<fieldset>
 				<label htmlFor="email">Email:</label>
 				<input
@@ -54,7 +84,7 @@ export default function Register(props) {
 					onChange={ e => setVerifyPassword(e.target.value) }
 				/>
 			</fieldset>
-			<button>Sign Up</button>
+			<button onClick={ handleSubmit }>Sign Up</button>
 			<p 
 				className="pseudolink"
 				onClick={ props.toggleMode }

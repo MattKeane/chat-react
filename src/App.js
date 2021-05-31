@@ -6,6 +6,11 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [currentUser, setCurrentUser] = useState({});
 
+  const logInUser = user => {
+    setLoggedIn(true);
+    setCurrentUser(user);
+  };
+
   return (
     <div className="App">
     {
@@ -13,7 +18,7 @@ function App() {
       ?
       <p>User logged in</p>
       :
-      <LogInRegister />
+      <LogInRegister logInUser={ logInUser } />
     }
     </div>
   );

@@ -12,9 +12,15 @@ export default function LogInRegister(props) {
 			{
 				registerMode
 				?
-				<Register toggleMode={ toggleMode } />
+				<Register 
+					toggleMode={ toggleMode }
+					logInUser={ props.logInUser } 
+				/>
 				:
-				<LogIn toggleMode={ toggleMode } />
+				<LogIn 
+					toggleMode={ toggleMode }
+					logInUser={ props.logInUser } 
+				/>
 			}
 		</React.Fragment>
 	)

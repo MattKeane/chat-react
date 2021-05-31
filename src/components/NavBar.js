@@ -15,7 +15,19 @@ export default function NavBar(props) {
 	return (
 		<nav>
 			<ul>
-				<li className="pseudolink" onClick={ logOut }>Log Out</li>
+				<li 
+					className="pseudolink" 
+					onClick={ e => props.setCurrentMode('globalChat')}
+				>
+					Global Chat
+				</li>
+				<li 
+					className="pseudolink" 
+					onClick={ logOut }
+				>
+					Log Out
+					</li>
+
 			</ul>
 		</nav>
 	)

@@ -1,5 +1,11 @@
+import { useContext } from 'react';
+import { UserContext } from '../App';
+
 export default function Main(props) {
+
+	const currentUser = useContext(UserContext);
+
 	return (
-		<p>This is the main component.</p>
+		<p>Welcome, {currentUser.username}!</p>
 	)
 }

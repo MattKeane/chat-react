@@ -1,7 +1,9 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import LogInRegister from './components/LogInRegister';
 import Main from './components/Main';
+
+export const UserContext = createContext();
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -13,15 +15,17 @@ function App() {
   };
 
   return (
-    <div className="App">
-    {
-      loggedIn 
-      ?
-      <Main />
-      :
-      <LogInRegister logInUser={ logInUser } />
-    }
-    </div>
+    <UserContext.Provider value={ currentUser }>
+      <div className="App">
+      {
+        loggedIn 
+        ?
+        <Main />
+        :
+        <LogInRegister logInUser={ logInUser } />
+      }
+      </div>
+    </UserContext.Provider>
   );
 }
 

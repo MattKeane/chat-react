@@ -1,6 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import LogInRegister from './components/LogInRegister';
+import Main from './components/Main';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -16,7 +17,7 @@ function App() {
     {
       loggedIn 
       ?
-      <p>User logged in</p>
+      <Main />
       :
       <LogInRegister logInUser={ logInUser } />
     }

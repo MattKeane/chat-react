@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import LogIn from './LogIn';
+import Register from './Register';
 
 export default function LogInRegister(props) {
 	const [registerMode, setRegisterMode] = useState(false);
@@ -11,7 +12,7 @@ export default function LogInRegister(props) {
 			{
 				registerMode
 				?
-				<p>Register Mode</p>
+				<Register toggleMode={ toggleMode } />
 				:
 				<LogIn toggleMode={ toggleMode } />
 			}

@@ -10,7 +10,7 @@ export default function NavBar(props) {
 		if (logOutResponse.status === 200) {
 			props.logOutUser();
 		}
-	}
+	};
 
 	return (
 		<nav>

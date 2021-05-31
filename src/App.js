@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 import LogInRegister from './components/LogInRegister';
 import Main from './components/Main';
 
@@ -18,6 +18,19 @@ function App() {
     setLoggedIn(false);
     setCurrentUser({});
   }
+
+  useEffect(() => {
+    const url = process.env.REACT_APP_API_URL + '/api/v1/auth/currentUser';
+    fetch(url, {credentials: 'include'})
+      .then(res => {
+        if (res.status === 200) {
+          res.json()
+            .then(json => logInUser(json.data))
+            .catch(err => console.error(err));
+        }
+      })
+      .catch(err => console.error(err));
+  }, []);
 
   return (
     <UserContext.Provider value={ currentUser }>

@@ -1,5 +1,6 @@
 import './App.css';
 import { useState } from 'react';
+import LogInRegister from './components/LogInRegister';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -12,7 +13,7 @@ function App() {
       ?
       <p>User logged in</p>
       :
-      <p>No user logged in</p>
+      <LogInRegister />
     }
     </div>
   );

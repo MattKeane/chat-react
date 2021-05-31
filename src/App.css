@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+form {
+  margin: 0 auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  border: 0;
+  display: flex;
+  justify-content:  space-between;
+}

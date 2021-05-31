@@ -57,3 +57,8 @@ fieldset {
 .pseudolink:hover {
   text-decoration:  none;
 }
+
+nav ul {
+  list-style: none;
+  display: flex;
+}

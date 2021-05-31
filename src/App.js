@@ -14,13 +14,18 @@ function App() {
     setCurrentUser(user);
   };
 
+  const logOutUser = () => {
+    setLoggedIn(false);
+    setCurrentUser({});
+  }
+
   return (
     <UserContext.Provider value={ currentUser }>
       <div className="App">
       {
         loggedIn 
         ?
-        <Main />
+        <Main logOutUser={ logOutUser } />
         :
         <LogInRegister logInUser={ logInUser } />
       }

@@ -8,7 +8,7 @@ export default function Main(props) {
 
 	return (
 		<React.Fragment>
-			<NavBar />
+			<NavBar logOutUser={ props.logOutUser } />
 			<p>Welcome, {currentUser.username}!</p>
 		</React.Fragment>
 	)

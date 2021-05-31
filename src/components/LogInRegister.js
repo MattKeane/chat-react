@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LogIn from './LogIn';
 
 export default function LogInRegister(props) {
 	const [registerMode, setRegisterMode] = useState(false);
@@ -10,7 +11,7 @@ export default function LogInRegister(props) {
 				?
 				<p>Register Mode</p>
 				:
-				<p>Log In Mode</p>
+				<LogIn />
 			}
 		</React.Fragment>
 	)

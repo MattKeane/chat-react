@@ -20,6 +20,8 @@ function App() {
   }
 
   useEffect(() => {
+    // Checks if the user has a valid session active already
+    // Updates the user if that's the case
     const url = process.env.REACT_APP_API_URL + '/api/v1/auth/currentUser';
     fetch(url, {credentials: 'include'})
       .then(res => {

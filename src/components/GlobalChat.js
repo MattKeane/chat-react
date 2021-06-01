@@ -5,10 +5,12 @@ import '../App.css';
 export default function GlobalChat(props) {
 	const [messages, setMessages] = useState([]);
 	const [outgoingMessage, setOutgoingMessage] = useState('');
+
+	// ref for storing the socket.io client
+	// does not connect until useEffect runs
 	const { current: socket } = useRef(socketIOClient(process.env.REACT_APP_API_URL, {
 		autoConnect: false,
 	}));
-	console.log('bloop');
 
 	const sendMessage = () => {
 		socket.emit('global', outgoingMessage);
@@ -16,10 +18,12 @@ export default function GlobalChat(props) {
 	};
 
 	useEffect(() => {
+		// connects to global chat
 		socket.connect();
 		socket.on('global', msg => {
 			setMessages(m => [...m, msg]);
 		});
+		// disconnects on unmounting
 		return () => socket.disconnect();
 	}, [socket]);
 
